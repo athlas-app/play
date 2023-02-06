@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "/pb";
+
+message CreateMatchRequest { }
+message CreateMatchResponse {
+    Match created_match = 1;
+}
+
+message Match {
+    string id = 1;
+    string owner = 2;
+    repeated string participants = 3;
+    MatchStatus status = 4;
+}
+
+enum MatchStatus {
+    LISTED = 0;
+    PENDING = 1;
+    CONFIRMED = 2;
+    IN_PROGRESS = 3;
+    COMPLETED = 4;
+    CANCELLED = 5;
+}
