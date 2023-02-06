@@ -15,14 +15,14 @@ type server struct {
 	pb.UnimplementedPlayServer
 }
 
-func (s *server) CreateMatch(ctx context.Context, in *pb.CreateMatchRequest) (*pb.CreateMatchResponse, error) {
+func (s *server) CreateMatch(ctx context.Context, in *pb.CreateGameRequest) (*pb.CreateGameResponse, error) {
 	log.Printf("Received request: %v", in.ProtoReflect().Descriptor().FullName())
-	return &pb.CreateMatchResponse{
-		CreatedMatch: &pb.Match{
+	return &pb.CreateGameResponse{
+		CreatedGame: &pb.Game{
 			Id:           "123",
 			Owner:        "123",
 			Participants: []string{"123", "456"},
-			Status:       pb.MatchStatus_LISTED,
+			Status:       pb.GameStatus_LISTED,
 		},
 	}, nil
 }
