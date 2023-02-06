@@ -15,7 +15,7 @@ type server struct {
 	pb.UnimplementedPlayServer
 }
 
-func (s *server) CreateMatch(ctx context.Context, in *pb.CreateGameRequest) (*pb.CreateGameResponse, error) {
+func (s *server) CreateGame(ctx context.Context, in *pb.CreateGameRequest) (*pb.CreateGameResponse, error) {
 	log.Printf("Received request: %v", in.ProtoReflect().Descriptor().FullName())
 	return &pb.CreateGameResponse{
 		CreatedGame: &pb.Game{
