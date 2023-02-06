@@ -20,20 +20,20 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type MatchStatus int32
+type GameStatus int32
 
 const (
-	MatchStatus_LISTED      MatchStatus = 0
-	MatchStatus_PENDING     MatchStatus = 1
-	MatchStatus_CONFIRMED   MatchStatus = 2
-	MatchStatus_IN_PROGRESS MatchStatus = 3
-	MatchStatus_COMPLETED   MatchStatus = 4
-	MatchStatus_CANCELLED   MatchStatus = 5
+	GameStatus_LISTED      GameStatus = 0
+	GameStatus_PENDING     GameStatus = 1
+	GameStatus_CONFIRMED   GameStatus = 2
+	GameStatus_IN_PROGRESS GameStatus = 3
+	GameStatus_COMPLETED   GameStatus = 4
+	GameStatus_CANCELLED   GameStatus = 5
 )
 
-// Enum value maps for MatchStatus.
+// Enum value maps for GameStatus.
 var (
-	MatchStatus_name = map[int32]string{
+	GameStatus_name = map[int32]string{
 		0: "LISTED",
 		1: "PENDING",
 		2: "CONFIRMED",
@@ -41,7 +41,7 @@ var (
 		4: "COMPLETED",
 		5: "CANCELLED",
 	}
-	MatchStatus_value = map[string]int32{
+	GameStatus_value = map[string]int32{
 		"LISTED":      0,
 		"PENDING":     1,
 		"CONFIRMED":   2,
@@ -51,41 +51,41 @@ var (
 	}
 )
 
-func (x MatchStatus) Enum() *MatchStatus {
-	p := new(MatchStatus)
+func (x GameStatus) Enum() *GameStatus {
+	p := new(GameStatus)
 	*p = x
 	return p
 }
 
-func (x MatchStatus) String() string {
+func (x GameStatus) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (MatchStatus) Descriptor() protoreflect.EnumDescriptor {
+func (GameStatus) Descriptor() protoreflect.EnumDescriptor {
 	return file_models_proto_enumTypes[0].Descriptor()
 }
 
-func (MatchStatus) Type() protoreflect.EnumType {
+func (GameStatus) Type() protoreflect.EnumType {
 	return &file_models_proto_enumTypes[0]
 }
 
-func (x MatchStatus) Number() protoreflect.EnumNumber {
+func (x GameStatus) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use MatchStatus.Descriptor instead.
-func (MatchStatus) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use GameStatus.Descriptor instead.
+func (GameStatus) EnumDescriptor() ([]byte, []int) {
 	return file_models_proto_rawDescGZIP(), []int{0}
 }
 
-type CreateMatchRequest struct {
+type CreateGameRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 }
 
-func (x *CreateMatchRequest) Reset() {
-	*x = CreateMatchRequest{}
+func (x *CreateGameRequest) Reset() {
+	*x = CreateGameRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_models_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -93,13 +93,13 @@ func (x *CreateMatchRequest) Reset() {
 	}
 }
 
-func (x *CreateMatchRequest) String() string {
+func (x *CreateGameRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CreateMatchRequest) ProtoMessage() {}
+func (*CreateGameRequest) ProtoMessage() {}
 
-func (x *CreateMatchRequest) ProtoReflect() protoreflect.Message {
+func (x *CreateGameRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_models_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -111,21 +111,21 @@ func (x *CreateMatchRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CreateMatchRequest.ProtoReflect.Descriptor instead.
-func (*CreateMatchRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use CreateGameRequest.ProtoReflect.Descriptor instead.
+func (*CreateGameRequest) Descriptor() ([]byte, []int) {
 	return file_models_proto_rawDescGZIP(), []int{0}
 }
 
-type CreateMatchResponse struct {
+type CreateGameResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	CreatedMatch *Match `protobuf:"bytes,1,opt,name=created_match,json=createdMatch,proto3" json:"created_match,omitempty"`
+	CreatedGame *Game `protobuf:"bytes,1,opt,name=created_game,json=createdGame,proto3" json:"created_game,omitempty"`
 }
 
-func (x *CreateMatchResponse) Reset() {
-	*x = CreateMatchResponse{}
+func (x *CreateGameResponse) Reset() {
+	*x = CreateGameResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_models_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -133,13 +133,13 @@ func (x *CreateMatchResponse) Reset() {
 	}
 }
 
-func (x *CreateMatchResponse) String() string {
+func (x *CreateGameResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CreateMatchResponse) ProtoMessage() {}
+func (*CreateGameResponse) ProtoMessage() {}
 
-func (x *CreateMatchResponse) ProtoReflect() protoreflect.Message {
+func (x *CreateGameResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_models_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -151,31 +151,31 @@ func (x *CreateMatchResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CreateMatchResponse.ProtoReflect.Descriptor instead.
-func (*CreateMatchResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use CreateGameResponse.ProtoReflect.Descriptor instead.
+func (*CreateGameResponse) Descriptor() ([]byte, []int) {
 	return file_models_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateMatchResponse) GetCreatedMatch() *Match {
+func (x *CreateGameResponse) GetCreatedGame() *Game {
 	if x != nil {
-		return x.CreatedMatch
+		return x.CreatedGame
 	}
 	return nil
 }
 
-type Match struct {
+type Game struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id           string      `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Owner        string      `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
-	Participants []string    `protobuf:"bytes,3,rep,name=participants,proto3" json:"participants,omitempty"`
-	Status       MatchStatus `protobuf:"varint,4,opt,name=status,proto3,enum=MatchStatus" json:"status,omitempty"`
+	Id           string     `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Owner        string     `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
+	Participants []string   `protobuf:"bytes,3,rep,name=participants,proto3" json:"participants,omitempty"`
+	Status       GameStatus `protobuf:"varint,4,opt,name=status,proto3,enum=GameStatus" json:"status,omitempty"`
 }
 
-func (x *Match) Reset() {
-	*x = Match{}
+func (x *Game) Reset() {
+	*x = Game{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_models_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -183,13 +183,13 @@ func (x *Match) Reset() {
 	}
 }
 
-func (x *Match) String() string {
+func (x *Game) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Match) ProtoMessage() {}
+func (*Game) ProtoMessage() {}
 
-func (x *Match) ProtoReflect() protoreflect.Message {
+func (x *Game) ProtoReflect() protoreflect.Message {
 	mi := &file_models_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -201,64 +201,63 @@ func (x *Match) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Match.ProtoReflect.Descriptor instead.
-func (*Match) Descriptor() ([]byte, []int) {
+// Deprecated: Use Game.ProtoReflect.Descriptor instead.
+func (*Game) Descriptor() ([]byte, []int) {
 	return file_models_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *Match) GetId() string {
+func (x *Game) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-func (x *Match) GetOwner() string {
+func (x *Game) GetOwner() string {
 	if x != nil {
 		return x.Owner
 	}
 	return ""
 }
 
-func (x *Match) GetParticipants() []string {
+func (x *Game) GetParticipants() []string {
 	if x != nil {
 		return x.Participants
 	}
 	return nil
 }
 
-func (x *Match) GetStatus() MatchStatus {
+func (x *Game) GetStatus() GameStatus {
 	if x != nil {
 		return x.Status
 	}
-	return MatchStatus_LISTED
+	return GameStatus_LISTED
 }
 
 var File_models_proto protoreflect.FileDescriptor
 
 var file_models_proto_rawDesc = []byte{
-	0x0a, 0x0c, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x14,
-	0x0a, 0x12, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4d, 0x61, 0x74, 0x63, 0x68, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x22, 0x42, 0x0a, 0x13, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4d, 0x61,
-	0x74, 0x63, 0x68, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2b, 0x0a, 0x0d, 0x63,
-	0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x5f, 0x6d, 0x61, 0x74, 0x63, 0x68, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x0b, 0x32, 0x06, 0x2e, 0x4d, 0x61, 0x74, 0x63, 0x68, 0x52, 0x0c, 0x63, 0x72, 0x65, 0x61,
-	0x74, 0x65, 0x64, 0x4d, 0x61, 0x74, 0x63, 0x68, 0x22, 0x77, 0x0a, 0x05, 0x4d, 0x61, 0x74, 0x63,
-	0x68, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69,
-	0x64, 0x12, 0x14, 0x0a, 0x05, 0x6f, 0x77, 0x6e, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x05, 0x6f, 0x77, 0x6e, 0x65, 0x72, 0x12, 0x22, 0x0a, 0x0c, 0x70, 0x61, 0x72, 0x74, 0x69,
-	0x63, 0x69, 0x70, 0x61, 0x6e, 0x74, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x09, 0x52, 0x0c, 0x70,
-	0x61, 0x72, 0x74, 0x69, 0x63, 0x69, 0x70, 0x61, 0x6e, 0x74, 0x73, 0x12, 0x24, 0x0a, 0x06, 0x73,
-	0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x0c, 0x2e, 0x4d, 0x61,
-	0x74, 0x63, 0x68, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75,
-	0x73, 0x2a, 0x64, 0x0a, 0x0b, 0x4d, 0x61, 0x74, 0x63, 0x68, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73,
-	0x12, 0x0a, 0x0a, 0x06, 0x4c, 0x49, 0x53, 0x54, 0x45, 0x44, 0x10, 0x00, 0x12, 0x0b, 0x0a, 0x07,
-	0x50, 0x45, 0x4e, 0x44, 0x49, 0x4e, 0x47, 0x10, 0x01, 0x12, 0x0d, 0x0a, 0x09, 0x43, 0x4f, 0x4e,
-	0x46, 0x49, 0x52, 0x4d, 0x45, 0x44, 0x10, 0x02, 0x12, 0x0f, 0x0a, 0x0b, 0x49, 0x4e, 0x5f, 0x50,
-	0x52, 0x4f, 0x47, 0x52, 0x45, 0x53, 0x53, 0x10, 0x03, 0x12, 0x0d, 0x0a, 0x09, 0x43, 0x4f, 0x4d,
-	0x50, 0x4c, 0x45, 0x54, 0x45, 0x44, 0x10, 0x04, 0x12, 0x0d, 0x0a, 0x09, 0x43, 0x41, 0x4e, 0x43,
-	0x45, 0x4c, 0x4c, 0x45, 0x44, 0x10, 0x05, 0x42, 0x05, 0x5a, 0x03, 0x2f, 0x70, 0x62, 0x62, 0x06,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x0a, 0x0c, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x13,
+	0x0a, 0x11, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x47, 0x61, 0x6d, 0x65, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x22, 0x3e, 0x0a, 0x12, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x47, 0x61, 0x6d,
+	0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x28, 0x0a, 0x0c, 0x63, 0x72, 0x65,
+	0x61, 0x74, 0x65, 0x64, 0x5f, 0x67, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
+	0x05, 0x2e, 0x47, 0x61, 0x6d, 0x65, 0x52, 0x0b, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x47,
+	0x61, 0x6d, 0x65, 0x22, 0x75, 0x0a, 0x04, 0x47, 0x61, 0x6d, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x6f,
+	0x77, 0x6e, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x6f, 0x77, 0x6e, 0x65,
+	0x72, 0x12, 0x22, 0x0a, 0x0c, 0x70, 0x61, 0x72, 0x74, 0x69, 0x63, 0x69, 0x70, 0x61, 0x6e, 0x74,
+	0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x09, 0x52, 0x0c, 0x70, 0x61, 0x72, 0x74, 0x69, 0x63, 0x69,
+	0x70, 0x61, 0x6e, 0x74, 0x73, 0x12, 0x23, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18,
+	0x04, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x0b, 0x2e, 0x47, 0x61, 0x6d, 0x65, 0x53, 0x74, 0x61, 0x74,
+	0x75, 0x73, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x2a, 0x63, 0x0a, 0x0a, 0x47, 0x61,
+	0x6d, 0x65, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x0a, 0x0a, 0x06, 0x4c, 0x49, 0x53, 0x54,
+	0x45, 0x44, 0x10, 0x00, 0x12, 0x0b, 0x0a, 0x07, 0x50, 0x45, 0x4e, 0x44, 0x49, 0x4e, 0x47, 0x10,
+	0x01, 0x12, 0x0d, 0x0a, 0x09, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x52, 0x4d, 0x45, 0x44, 0x10, 0x02,
+	0x12, 0x0f, 0x0a, 0x0b, 0x49, 0x4e, 0x5f, 0x50, 0x52, 0x4f, 0x47, 0x52, 0x45, 0x53, 0x53, 0x10,
+	0x03, 0x12, 0x0d, 0x0a, 0x09, 0x43, 0x4f, 0x4d, 0x50, 0x4c, 0x45, 0x54, 0x45, 0x44, 0x10, 0x04,
+	0x12, 0x0d, 0x0a, 0x09, 0x43, 0x41, 0x4e, 0x43, 0x45, 0x4c, 0x4c, 0x45, 0x44, 0x10, 0x05, 0x42,
+	0x05, 0x5a, 0x03, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -276,14 +275,14 @@ func file_models_proto_rawDescGZIP() []byte {
 var file_models_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_models_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_models_proto_goTypes = []interface{}{
-	(MatchStatus)(0),            // 0: MatchStatus
-	(*CreateMatchRequest)(nil),  // 1: CreateMatchRequest
-	(*CreateMatchResponse)(nil), // 2: CreateMatchResponse
-	(*Match)(nil),               // 3: Match
+	(GameStatus)(0),            // 0: GameStatus
+	(*CreateGameRequest)(nil),  // 1: CreateGameRequest
+	(*CreateGameResponse)(nil), // 2: CreateGameResponse
+	(*Game)(nil),               // 3: Game
 }
 var file_models_proto_depIdxs = []int32{
-	3, // 0: CreateMatchResponse.created_match:type_name -> Match
-	0, // 1: Match.status:type_name -> MatchStatus
+	3, // 0: CreateGameResponse.created_game:type_name -> Game
+	0, // 1: Game.status:type_name -> GameStatus
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -298,7 +297,7 @@ func file_models_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_models_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateMatchRequest); i {
+			switch v := v.(*CreateGameRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -310,7 +309,7 @@ func file_models_proto_init() {
 			}
 		}
 		file_models_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateMatchResponse); i {
+			switch v := v.(*CreateGameResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -322,7 +321,7 @@ func file_models_proto_init() {
 			}
 		}
 		file_models_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Match); i {
+			switch v := v.(*Game); i {
 			case 0:
 				return &v.state
 			case 1:

@@ -2,19 +2,19 @@ syntax = "proto3";
 
 option go_package = "/pb";
 
-message CreateMatchRequest { }
-message CreateMatchResponse {
-    Match created_match = 1;
+message CreateGameRequest { }
+message CreateGameResponse {
+    Game created_game = 1;
 }
 
-message Match {
+message Game {
     string id = 1;
     string owner = 2;
     repeated string participants = 3;
-    MatchStatus status = 4;
+    GameStatus status = 4;
 }
 
-enum MatchStatus {
+enum GameStatus {
     LISTED = 0;
     PENDING = 1;
     CONFIRMED = 2;

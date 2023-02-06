@@ -22,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PlayClient interface {
-	CreateMatch(ctx context.Context, in *CreateMatchRequest, opts ...grpc.CallOption) (*CreateMatchResponse, error)
+	CreateGame(ctx context.Context, in *CreateGameRequest, opts ...grpc.CallOption) (*CreateGameResponse, error)
 }
 
 type playClient struct {
@@ -33,9 +33,9 @@ func NewPlayClient(cc grpc.ClientConnInterface) PlayClient {
 	return &playClient{cc}
 }
 
-func (c *playClient) CreateMatch(ctx context.Context, in *CreateMatchRequest, opts ...grpc.CallOption) (*CreateMatchResponse, error) {
-	out := new(CreateMatchResponse)
-	err := c.cc.Invoke(ctx, "/Play/CreateMatch", in, out, opts...)
+func (c *playClient) CreateGame(ctx context.Context, in *CreateGameRequest, opts ...grpc.CallOption) (*CreateGameResponse, error) {
+	out := new(CreateGameResponse)
+	err := c.cc.Invoke(ctx, "/Play/CreateGame", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -46,7 +46,7 @@ func (c *playClient) CreateMatch(ctx context.Context, in *CreateMatchRequest, op
 // All implementations must embed UnimplementedPlayServer
 // for forward compatibility
 type PlayServer interface {
-	CreateMatch(context.Context, *CreateMatchRequest) (*CreateMatchResponse, error)
+	CreateGame(context.Context, *CreateGameRequest) (*CreateGameResponse, error)
 	mustEmbedUnimplementedPlayServer()
 }
 
@@ -54,8 +54,8 @@ type PlayServer interface {
 type UnimplementedPlayServer struct {
 }
 
-func (UnimplementedPlayServer) CreateMatch(context.Context, *CreateMatchRequest) (*CreateMatchResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateMatch not implemented")
+func (UnimplementedPlayServer) CreateGame(context.Context, *CreateGameRequest) (*CreateGameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateGame not implemented")
 }
 func (UnimplementedPlayServer) mustEmbedUnimplementedPlayServer() {}
 
@@ -70,20 +70,20 @@ func RegisterPlayServer(s grpc.ServiceRegistrar, srv PlayServer) {
 	s.RegisterService(&Play_ServiceDesc, srv)
 }
 
-func _Play_CreateMatch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateMatchRequest)
+func _Play_CreateGame_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateGameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PlayServer).CreateMatch(ctx, in)
+		return srv.(PlayServer).CreateGame(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Play/CreateMatch",
+		FullMethod: "/Play/CreateGame",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PlayServer).CreateMatch(ctx, req.(*CreateMatchRequest))
+		return srv.(PlayServer).CreateGame(ctx, req.(*CreateGameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -96,8 +96,8 @@ var Play_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*PlayServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CreateMatch",
-			Handler:    _Play_CreateMatch_Handler,
+			MethodName: "CreateGame",
+			Handler:    _Play_CreateGame_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

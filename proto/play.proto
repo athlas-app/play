@@ -5,5 +5,5 @@ option go_package = "/pb";
 import "models.proto";
 
 service Play {
-  rpc CreateMatch(CreateMatchRequest) returns (CreateMatchResponse) {}
+  rpc CreateGame(CreateGameRequest) returns (CreateGameResponse) {}
 }
