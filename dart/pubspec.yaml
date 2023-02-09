@@ -9,4 +9,4 @@ dependencies:
 
 scripts:
   generate_pb:
-    protoc --proto_path=../proto ../proto/*.proto --dart_out=.
+    protoc --proto_path=../proto ../proto/*.proto --dart_out=./lib
