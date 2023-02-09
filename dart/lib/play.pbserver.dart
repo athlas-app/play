@@ -17,10 +17,12 @@ export 'play.pb.dart';
 
 abstract class PlayServiceBase extends $pb.GeneratedService {
   $async.Future<$0.CreateGameResponse> createGame($pb.ServerContext ctx, $0.CreateGameRequest request);
+  $async.Future<$0.CreateGameResponse> createTest($pb.ServerContext ctx, $0.CreateGameRequest request);
 
   $pb.GeneratedMessage createRequest($core.String method) {
     switch (method) {
       case 'CreateGame': return $0.CreateGameRequest();
+      case 'CreateTest': return $0.CreateGameRequest();
       default: throw $core.ArgumentError('Unknown method: $method');
     }
   }
@@ -28,6 +30,7 @@ abstract class PlayServiceBase extends $pb.GeneratedService {
   $async.Future<$pb.GeneratedMessage> handleCall($pb.ServerContext ctx, $core.String method, $pb.GeneratedMessage request) {
     switch (method) {
       case 'CreateGame': return this.createGame(ctx, request as $0.CreateGameRequest);
+      case 'CreateTest': return this.createTest(ctx, request as $0.CreateGameRequest);
       default: throw $core.ArgumentError('Unknown method: $method');
     }
   }

@@ -23,6 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PlayClient interface {
 	CreateGame(ctx context.Context, in *CreateGameRequest, opts ...grpc.CallOption) (*CreateGameResponse, error)
+	CreateTest(ctx context.Context, in *CreateGameRequest, opts ...grpc.CallOption) (*CreateGameResponse, error)
 }
 
 type playClient struct {
@@ -42,11 +43,21 @@ func (c *playClient) CreateGame(ctx context.Context, in *CreateGameRequest, opts
 	return out, nil
 }
 
+func (c *playClient) CreateTest(ctx context.Context, in *CreateGameRequest, opts ...grpc.CallOption) (*CreateGameResponse, error) {
+	out := new(CreateGameResponse)
+	err := c.cc.Invoke(ctx, "/Play/CreateTest", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PlayServer is the server API for Play service.
 // All implementations must embed UnimplementedPlayServer
 // for forward compatibility
 type PlayServer interface {
 	CreateGame(context.Context, *CreateGameRequest) (*CreateGameResponse, error)
+	CreateTest(context.Context, *CreateGameRequest) (*CreateGameResponse, error)
 	mustEmbedUnimplementedPlayServer()
 }
 
@@ -56,6 +67,9 @@ type UnimplementedPlayServer struct {
 
 func (UnimplementedPlayServer) CreateGame(context.Context, *CreateGameRequest) (*CreateGameResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateGame not implemented")
+}
+func (UnimplementedPlayServer) CreateTest(context.Context, *CreateGameRequest) (*CreateGameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateTest not implemented")
 }
 func (UnimplementedPlayServer) mustEmbedUnimplementedPlayServer() {}
 
@@ -88,6 +102,24 @@ func _Play_CreateGame_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Play_CreateTest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateGameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlayServer).CreateTest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Play/CreateTest",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlayServer).CreateTest(ctx, req.(*CreateGameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Play_ServiceDesc is the grpc.ServiceDesc for Play service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -98,6 +130,10 @@ var Play_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateGame",
 			Handler:    _Play_CreateGame_Handler,
+		},
+		{
+			MethodName: "CreateTest",
+			Handler:    _Play_CreateTest_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

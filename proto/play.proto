@@ -6,4 +6,5 @@ import "models.proto";
 
 service Play {
   rpc CreateGame(CreateGameRequest) returns (CreateGameResponse) {}
+  rpc CreateTest(CreateGameRequest) returns (CreateGameResponse) {}
 }

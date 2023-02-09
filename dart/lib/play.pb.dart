@@ -20,5 +20,9 @@ class PlayApi {
     var emptyResponse = $0.CreateGameResponse();
     return _client.invoke<$0.CreateGameResponse>(ctx, 'Play', 'CreateGame', request, emptyResponse);
   }
+  $async.Future<$0.CreateGameResponse> createTest($pb.ClientContext? ctx, $0.CreateGameRequest request) {
+    var emptyResponse = $0.CreateGameResponse();
+    return _client.invoke<$0.CreateGameResponse>(ctx, 'Play', 'CreateTest', request, emptyResponse);
+  }
 }
 

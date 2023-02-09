@@ -14,6 +14,7 @@ const $core.Map<$core.String, $core.dynamic> PlayServiceBase$json = const {
   '1': 'Play',
   '2': const [
     const {'1': 'CreateGame', '2': '.CreateGameRequest', '3': '.CreateGameResponse', '4': const {}},
+    const {'1': 'CreateTest', '2': '.CreateGameRequest', '3': '.CreateGameResponse', '4': const {}},
   ],
 };
 
@@ -25,4 +26,4 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> PlayServic
 };
 
 /// Descriptor for `Play`. Decode as a `google.protobuf.ServiceDescriptorProto`.
-final $typed_data.Uint8List playServiceDescriptor = $convert.base64Decode('CgRQbGF5EjcKCkNyZWF0ZUdhbWUSEi5DcmVhdGVHYW1lUmVxdWVzdBoTLkNyZWF0ZUdhbWVSZXNwb25zZSIA');
+final $typed_data.Uint8List playServiceDescriptor = $convert.base64Decode('CgRQbGF5EjcKCkNyZWF0ZUdhbWUSEi5DcmVhdGVHYW1lUmVxdWVzdBoTLkNyZWF0ZUdhbWVSZXNwb25zZSIAEjcKCkNyZWF0ZVRlc3QSEi5DcmVhdGVHYW1lUmVxdWVzdBoTLkNyZWF0ZUdhbWVSZXNwb25zZSIA');
