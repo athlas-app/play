@@ -23,3 +23,5 @@ go.work
 # Protobuf
 # **/pb/*
 # *.pb.go
+
+dart/.dart_tool
