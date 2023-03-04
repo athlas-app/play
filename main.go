@@ -1,7 +1,7 @@
 package main
 
 import (
-	pb "athlas/play/pb"
+	pb "github.com/athlas-app/play/pb"
 	"context"
 	"log"
 	"net"
