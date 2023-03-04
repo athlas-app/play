@@ -1,4 +1,4 @@
-module athlas/play
+module github.com/athlas/play
 
 go 1.19
 
