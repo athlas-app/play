@@ -1,11 +1,12 @@
 package main
 
 import (
-	pb "github.com/athlas-app/play/pb"
 	"context"
 	"log"
 	"net"
 	"os"
+
+	pb "github.com/athlas-app/play/pb"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
