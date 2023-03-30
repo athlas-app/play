@@ -2,6 +2,10 @@
 
 This is a Go gRPC server for all features related to individual matches
 
+## TODO:
+
+[ ] Set up documentation about converting JSON to YAML for openapi files
+
 ## Getting Started
 
 Before starting, you need to [install Go]("https://www.github.com/athlas-app"), [install Dart]("https://www.github.com/athlas-app") and the Protocol Buffer compiler (protoc) on your machine.
