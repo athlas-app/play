@@ -4,7 +4,14 @@ option go_package = "/pb";
 
 import "models.proto";
 
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
 service Play {
-  rpc CreateGame(CreateGameRequest) returns (CreateGameResponse) {}
-  rpc CreateTest(CreateGameRequest) returns (CreateGameResponse) {}
+  rpc CreateGame(CreateGameRequest) returns (CreateGameResponse) {
+    option (google.api.http) = {
+      post: "/Play/CreateGame"
+      body: "*"
+    };
+  }
 }
